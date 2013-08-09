@@ -1,0 +1,27 @@
+#! /home/dgold/dev/dg/python/llama/llama.py
+:-)  REM                                                                       !!!
+:-|  Vector number addition example                                            !!!!
+
+:-)  a                                                                         !!!!
+:-(  <=                                                                        !!!!!
+:-|  ^61 11                                                                    !!1!
+
+:-)  a                                                                         !!!!
+:-|  =>                                                                        !!!!
+:-)  READ OUT                                                                  !!!!
+
+:-|  b                                                                         !!!!
+:-)  <=                                                                        !!!!
+:-|  ^23 50                                                                    !!!!
+
+:-)  b                                                                         !!!!
+:-|  =>                                                                        !!!!
+:-)  READ OUT                                                                  !!!!
+
+:-|  a                                                                         !!!!
+:-)  <+                                                                        !!!!
+:-|  b                                                                         !!!!
+
+:-)  a                                                                         !!!!
+:-|  =>                                                                        !!!!
+x-p  READ OUT                                                                  !!!!

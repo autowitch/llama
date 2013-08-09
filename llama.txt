@@ -1,0 +1,210 @@
+INTRODUCTION
+------------
+
+
+
+Llama takes inspiration from some of the greatest programming languages
+created; then it steals from them.
+
+    The right hand indicators of RPG.
+    READ IN, WRITE OUT and a mutated version of COME FROM proudly stolen
+    from INTERCAL.
+
+Statements
+
+SMILEY COMMAND IMPORTANCE [RIGHT HAND INDICATOR]
+
+IMPORTANCE
+----------
+
+SMILEYS
+-------
+
+Smiley codes:
+
+    Each statement starts with a smiley. This smiley sets the mood of the
+    interpreter at the moment. The mood of the interpreter determines how
+    it will handle the statement being executed (and possibly other
+    statements).
+
+    The interpreter will generate an "Overly stable moods" error if two
+    statements with the same smiley code attempt to execute in a row.
+    This is due to the interpeter having a mood disorder.
+
+Special Smileys
+
+    x-p  Terminate after execution of line
+
+General Smileys
+
+   >:-)
+   ||||
+   ||||
+   |||`------ )  Increase importance of command by one
+   |||        |  Saves off the full command executed.  If one has already
+   |||           been executed, it will insert it just before the command
+   |||           running now.
+   |||        (  Decrease importance of command by one
+   |||           If the importance of the command becomes less than one, an
+   |||           error will occur.
+   |||        /  Increase current importance by one
+   |||        \  Decrease current importance by one
+   |||           If current importance becomes less than zero, an error
+   |||           will occur.
+   |||        0  If on symbol or value:
+   |||               Rotates the element indicated by importance indexed by the
+   |||               importance
+   |||           If on command:
+   |||               Rotates command
+   |||        O  Increase IP skip by one
+   |||        o  Decrease IP skip by one
+   |||        p  Decrase overall statement execution probability by 5% # remove?
+   |||        q  Increase overall statement execution probablity by 5% # remove?
+   |||        @  Push current line of code onto stack
+   |||        Q  Pop line of code from stack (inserting before current statement)
+   |||        D  If on symbol:
+   |||               Replaces with symbol indexed via importance in symbol table
+   |||           If on command:
+   |||               Replace command with command indexed via importance in
+   |||               symbol table.
+   |||           If on value:
+   |||               Replace value with symbol indexed via importance from
+   |||               symbol table.
+   |||        b  Pops statement from the stack (replacing current statement)
+   |||        C  Decreases importance of all statements by one
+   |||        d  Reverses execution (based on importance) of next statement
+   |||        E  When on a symbol or string, numeric, etc...
+   |||           Removes the element indicated by the importance (or last)
+   |||        [  RECONSIDER
+   |||        ]  MAYBE
+   |||        *  Swaps statements on either side of this one.
+   |||        P  When coming across the next command, skip that, and search
+   |||           for the next command, and continue assembling the full
+   |||           command statement from that point.
+   |||        c  Increases importance of all statements by one
+   |||        >  ABSTAIN
+   |||        <  REINSTATE
+   |||        3  Offsets symbol, command by importance
+   |||        #  Adds swing to ip incrementer (2 -> 1,3,1,3  1->-1,2,-1,2)
+   |||           Removes on second hit.
+   |||        F  Jump importance * ip_dir
+   |||        ?  Jump -1 * importance * ip_dir
+   |||        V  Swap RHI and values
+   |||        v  Rotate through ways data can be mangled during assignment
+   |||
+   ||`------- -     Fortunately, does nothing.
+   ||         *     The clown nose...  It's wacko
+   ||               If the statement on the current line is a known command,
+   ||               it will be saved.  If a command has already been saved,
+   ||               this command will be replaced by it.
+   ||               If the command is a symbol:
+   ||               If the command is a value (boolean, numeric, string)
+   ||         [sp]  (missing) Cannot smell
+   ||               On value or symbol:
+   ||                 Rotates the value or symbol up to importance spaces
+   ||               On command:
+   ||                 Swap with next found command in ip_dir.
+   ||
+   |`-------- :  Swap statement importance and current importance
+   |          ;  Reverse the IP direction
+   |          x  Delete current line of code
+   |          X  Skips over next instruction completely
+   |          %  Sets the execution probability of this statement to 50%
+   |          8  Move current line of code to the end of the program
+   |          B  Move current line of code -1 * IP Direction
+   |          .  Disable right hand indicators
+   |          ,  Enables right hand indicators
+   |          `  Inverts behaviour of right hand indicators
+   |          $  Redistribute the wealth.  Reverses direction of the next
+   |             assignment arrow.
+   |        
+   `--------- >     Evil: Mood rotator (see below) against all smileys until
+                    the next '>' is encountered.
+              |     Mood rotator against this smiley:
+                      Mouth Sequence:
+                      Eye Sequence:
+              (     Inverts the smiley: ) -> (, ] -> [
+              [sp]  (missing) Fortunately, does nothing.
+
+
+COMMANDS
+--------
+
+    Zero argument statements
+
+    NOP           Does nothing.  This may be deprecated in future versions.
+  
+    One argument statements
+
+    REM
+    COME FROM
+    IMPORT
+                  Note that the import will occur everytime the IMPORT
+                  statement executues
+
+    Assignment Statements
+
+    <=
+    =>
+    <-
+    ->
+    <+
+    +>
+
+
+RIGHT HAND INDICATORS
+---------------------
+
+
+VALUES
+------
+
+
+Numbers
+
+
+Strings
+
+
+Booleans
+
+
+Command Fragments
+
+Built in methods
+
+    READ OUT
+    WRITE IN
+
+
+METHODS, FUNCTIONS AND OBJECTS
+------------------------------
+
+
+FUTURE MODIFICATIONS
+--------------------
+
+  Left hand types:
+      C - comment
+      L - local scope
+      G - global scope... ?
+      H - header spec to set the run options
+      F - form spec
+      D - database table spec
+      I - File spec 
+ 
+  Numeric right hand indicators - 6 digit base 18 number) left two is EQ,
+  middle is LT and right ir GT (or maybe NE
+  Some indicators will be set automatically based on the interpeter doing
+  things.
+
+  Can use numeric indicators/importance to offset into arrays (and is actually
+  the only way to do so)
+
+  Array/classes/functions - should be sufficiently mangled in interesting
+  ways. Array element accessed vi importance (or/and/*) numeric indicator
+  offsets. Methods and classes may use a similar method.
+
+  New data types - Date, floating point, Time, DateTime
+
+  File/Database/Form (web,x,curses) support
